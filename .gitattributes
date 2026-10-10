@@ -1,0 +1,5 @@
+# The resource manifest in SKILL.md pins exact byte lengths and SHA-256 digests,
+# so checkout bytes must equal committed bytes on every platform. Normalise to LF
+# in the repository and always check LF out; without this, a Windows clone with
+# core.autocrlf=true would silently fail scripts/check_resources.py.
+* text=auto eol=lf
