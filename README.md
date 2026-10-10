@@ -14,6 +14,7 @@ The skill exists because this class of work has two failure modes that look like
 | `references/task-state-hygiene.md` | Task state, protected project roots, selector/handoff previews, lock roots, and the read-only preflight gates. |
 | `references/test-isolation.md` | Test isolation: why `--basetemp` must never point into the vault, how the runner owns temp roots, and the `__pycache__` rules. |
 | `scripts/check_resources.py` | Standalone read-only verifier: re-reads the manifest embedded in `SKILL.md` and checks every listed file's exact byte length and SHA-256. |
+| `LICENSE` | MIT. |
 
 ## Core rules it enforces
 
@@ -51,6 +52,10 @@ It prints `{"status": "PASS", ...}` and exits `0`, or prints a `HOLD` with a sta
 - Engine module names, evidence schema names, gate names, and project slugs are kept **verbatim** on purpose: they are the concrete part of the contract, and paraphrasing them would make the skill sound more general than it is.
 - The workflow this describes is enforced by a specific engine implementation. This repository ships the skill and its verifier only — **not** the engine. Where the text names an engine module or an entrypoint, that name is the contract you have to satisfy, not code you get here.
 - `scripts/check_resources.py` proves **manifest identity** for the five listed files. It is not a proof of a complete protocol closure, and it is not a same-handle guarantee against a process that rewrites a file between the check and its use.
+
+## License
+
+MIT — see [`LICENSE`](LICENSE). The copyright notice names the GitHub account rather than a legal name; change it if you fork this.
 
 ## 中文摘要
 
