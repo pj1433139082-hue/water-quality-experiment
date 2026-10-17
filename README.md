@@ -60,3 +60,13 @@ MIT — see [`LICENSE`](LICENSE). The copyright notice names the GitHub account 
 ## 中文摘要
 
 本仓库是一个**水质时间序列预测工作流**的 agent skill。它的重点是两件事：不让数据泄漏伪装成好指标，也不让一次通过的检查伪装成做某件事的授权。`SKILL.md` 是按需加载的入口，`references/` 下四份参考文件分别覆盖实验执行、来源取数、任务状态卫生与测试隔离，`scripts/check_resources.py` 用 `SKILL.md` 末尾的资源清单校验每个文件的确切字节数与 SHA-256。正文里那些只在私有语料中成立的本机路径已替换为占位符；引擎模块名、证据 schema 名与门禁名保持原样，因为它们是契约的具体部分。
+
+## Merge gate
+
+This repository deliberately has **no required status checks**: it holds an agent skill
+and its references, and its outputs are gated by the read-only resource check in
+`scripts/check_resources.py` plus the experiment's own human gates — not by CI.
+
+Changes still go through pull requests. If automated checks are added later
+(`.github/workflows/checks.yml` exposing a stable `checks` job), branch protection will
+require that single context, so the context name does not drift with a matrix.
